@@ -8,12 +8,11 @@ int cbinsearch(int *arr, int size, int value) {
     }
     if (arr[half_size] == value) {
         k++;
-    }
-    else if (arr[half_size] > value) {
+    } else if (arr[half_size] > value) {
         right = half_size;
-    }
-    else {
+    } else {
         left = half_size;
     }
-    return k + cbinsearch(arr, half_size - left, value) + cbinsearch(&(arr[half_size + 1]), right - half_size, value);
+    return k + cbinsearch(arr, half_size - left, value) +
+        cbinsearch(&(arr[half_size + 1]), right - half_size, value);
 }
